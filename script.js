@@ -14,7 +14,7 @@ let maxnum = 59;
 let minnum = 1;
 let minute = 1;
 let second = 59;
-let intervalvalue = 100;
+let intervalvalue = 1000;
 let targets;
 
 const bubbles = () => {
