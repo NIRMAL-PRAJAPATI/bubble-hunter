@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Bubble Hunter | sponzeall.com</title>
+</head>
+<body>
+    <h1 class="colorname" id="compname">Bubble Hunter<img src="logo (2).png" height="35" style="margin-bottom: -8px;"></h1>
+    <div id="main">
+        <div id="panel">
+            <div id="ptop">
+                <div class="board">
+                    <h2>Target</h2>
+                    <div class="binput" id="target">00</div>
+                </div>
+
+                <div class="board">
+                    <h2>Score</h2>
+                    <div class="binput" id="score">00</div>
+                </div>
+            </div>
+
+            <div id="pbottom">     
+            </div>
+        </div>
+
+        <div id="menu">
+            <div style="display: flex; font-size: 20px;">
+            <h3>High Score&nbsp;</h3>
+            <h3 class="dphscore" style="border: 2px solid green;"></h3>
+        </div>
+        <div id="t_b">
+            <h1 id="timing">[00:00]</h1>
+            <button id="btn" onclick="restart()">Restart</button>
+            </div>
+        </div>
+
+        <div class="mainclass" id="mainintro">
+            <div class="midclass" id="midintro">
+                <h1 class="colorname" style="font-size: 40px;">Hey, Welcome To Sponzeall Games</h1>
+                    <input type="text" id="name" placeholder="Enter your name">
+                    <p id="error"></p>
+
+                <div>
+                <h2 id="htp">How to play ?</h2>
+                <ul id="roles">
+                <li>You have multiple bubbles in your screen which stores number.</li>
+                <li>On the top side you have "target" and "score" boxes.</li>
+                <li>Target number is your target that you find and click the bubble which are available in your screen.</li>
+                <li>You have 2 minute to play the one round of the game.</li>
+                <li>On the bottom side you see the timer of your game. also the top score is availabe in bottome side.</li>
+                </ul>
+            </div>
+            <button id="ohkbtn" onclick="hideintro()">Ohk, Done !</button>
+            <a href="https://github.com/NIRMAL-PRAJAPATI">Visit Creator's Profile</a>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
