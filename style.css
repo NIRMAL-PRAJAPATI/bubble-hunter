@@ -10,9 +10,11 @@ html, body{
 }
 
 .colorname {
-    background-image: linear-gradient(to left, violet, indigo, blue, green, orange, red);
-  background-clip: text;
-  color: transparent;
+    background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
 }
 
 #compname {
