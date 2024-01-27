@@ -10,21 +10,24 @@ let dpscore = document.querySelector('#dpscore');
 let dphscore = document.querySelector('.dphscore');
 let playerscore = 0;
 let highscore = 20;
-let maxnum = 59;
-let minnum = 1;
+let maxnum = 953;
+let minnum = 101;
 let minute = 1;
 let second = 59;
 let intervalvalue = 1000;
 let targets;
 
+let bubble_arr = [];
+
 const bubbles = () => {
     let bblnum = "";
 
-    for (let i = 0; i <= 111; i++) {
+    for (let i = 0; i <= 100; i++) {
         let rannum = Math.floor(Math.random() * (maxnum - minnum) + minnum);
         bblnum += `<div id="bubble">${rannum}</div>`;
 
         bblbox.innerHTML = (bblnum);
+            bubble_arr[i] = rannum;
     }
 }
 
@@ -34,15 +37,15 @@ dphscore.innerHTML = "not set";
 }
 
 const randomnumber = () => {
-    targets = Math.floor(Math.random() * (maxnum - minnum) + minnum);
-    binput.innerHTML = targets;
+    targets = Math.floor(Math.random() * (bubble_arr.length - 0) + 0);
+    binput.innerHTML = bubble_arr[targets];
 }
 
 const picker = () => {
     target.addEventListener("click", (pick) => {
         let gamescore = Number(pick.target.innerHTML);
 
-        if (gamescore === targets) {
+        if (gamescore === bubble_arr[targets]) {
             playerscore = playerscore + 10;
             score.innerHTML = (playerscore);
 
@@ -107,6 +110,7 @@ const hideintro = () => {
         picker();
         randomnumber();
         scoreboard();
+        show_arr();
     }
 }
 
