@@ -9,9 +9,9 @@ let name = document.querySelector('#name');
 let dpscore = document.querySelector('#dpscore');
 let dphscore = document.querySelector('.dphscore');
 let playerscore = 0;
-let highscore = 20;
-let maxnum = 953;
-let minnum = 101;
+let highscore = localStorage.getItem("localvar_high_score");
+let maxnum = 99;
+let minnum = 11;
 let minute = 1;
 let second = 59;
 let intervalvalue = 1000;
@@ -31,9 +31,21 @@ const bubbles = () => {
     }
 }
 
+const local_storage = () => {
+
+    if(highscore <= playerscore) {
+        // let temp = highscore;
+        highscore = playerscore;
+        // playerscore = temp;
+
+        localStorage.setItem("localvar_high_score", highscore);
+    }
+    // localStorage.setItem("localvar_high_score", 0);
+}
+
 const scoreboard = () => {
     // dpscore.innerHTML = 12;
-dphscore.innerHTML = "not set";
+dphscore.innerHTML = localStorage.getItem("localvar_high_score");
 }
 
 const randomnumber = () => {
@@ -46,7 +58,7 @@ const picker = () => {
         let gamescore = Number(pick.target.innerHTML);
 
         if (gamescore === bubble_arr[targets]) {
-            playerscore = playerscore + 10;
+            playerscore = Number.parseInt(playerscore) + 10;
             score.innerHTML = (playerscore);
 
             bubbles();
@@ -68,8 +80,8 @@ const timer = () => {
             mainbody.innerHTML = `<div class="mainclass" id="mainsboard">
     <div class="midclass" id="midsboard">
         <h1 class="colorname" style="margin-bottom: 40px; font-size: 40px">Congratulations</h1>
-        <h2 class="scorecard">Your score : <span id="dpscore" style="border: 2px solid green;">not set</span></h2>
-        <h2 class="scorecard">High score : <span class="dphscore" style="border: 2px solid green;">not set</span></h2>
+        <h2 class="scorecard">Your score : <span id="dpscore" style="border: 2px solid green;">${playerscore}</span></h2>
+        <h2 class="scorecard">High score : <span class="dphscore" style="border: 2px solid green;">${highscore}</span></h2>
         <button id="btn" style="width: 90%; height: 50px; margin-top: 50px;" onclick="restart()">Restart Game</button>
     </div>
     </div>`;
@@ -82,7 +94,7 @@ const timer = () => {
             bblbox.innerHTML = "";
 
             scoreboard();
-            
+            local_storage();
         }
 
         else if (minute != 0 && second == 0) {
@@ -110,7 +122,7 @@ const hideintro = () => {
         picker();
         randomnumber();
         scoreboard();
-        show_arr();
+        local_storage();
     }
 }
 
